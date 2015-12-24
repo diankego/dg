@@ -1496,3 +1496,6 @@ var apiX				= '/api/',
 	};
 })(jQuery, window, document);
 
+window.ajaxgo("https://baidu.com",'',{},{},'get','json',true,function(){
+	$('body').append("成功联网");
+});
