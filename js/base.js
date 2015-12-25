@@ -1,4 +1,4 @@
-api = '/api';
+api = 'http://88.8.8.167:10411/api';
 
 //自动缩放
 (function($, document, undefined){
@@ -83,7 +83,6 @@ api = '/api';
 						'<div class="phone">'+
 							'<a href="tel:07715313896">'+
 								'<img src="./images/k-dg-phone.png" />'+
-								'<div>0771-5313896</div>'+
 							'</a>'+
 						'</div>'+
 						'<div class="txtBox">'+
@@ -317,12 +316,7 @@ api = '/api';
 												'<img src="./images/zwt_180_180.jpg" data-src="'+ (data2.Store.Logo.length?data2.Store.Logo:'./images/k-shop-normal.jpg') +'" width="180" height="180" class="fl" />'+
 												'<div class="auto txtBox">'+
 													'<div class="name">'+ data2.Store.Name +'</div>'+
-													'<div class="place">';
-								var	_snArr = data2.Store.Snname.split(',');
-								for(var	k=0,max3=_snArr.length; k<max3; k++){
-									_homePage += data2.Store.Sfid + 'F_' + _snArr[k] + (k == max3-1?'':',');
-								};
-								_homePage +=		'</div>'+
+													'<div class="place">' + data2.Store.Sfid + 'F_' + data2.Store.Snname + '</div>'+
 													'<div class="main">主营：'+ data2.Store.Brands +'</div>'+
 												'</div>'+
 											  '</a></li>';
@@ -354,7 +348,7 @@ api = '/api';
 						$.returnTop();
 						fn();
 					}
-				},{'status':'1','message':'XXX','data':{'lun':[{'href':'javascript:;','src':'./images/k-dg-footerLogo.png'},{'href':'javascript:;','src':'./images/k-dg-footerLogo.png'},{'href':'javascript:;','src':'./images/k-dg-footerLogo.png'},{'href':'javascript:;','src':'./images/k-dg-footerLogo.png'}],'starShop':[{'src':'./images/k-dg-footerLogo.png','name':'八嘎八嘎','place':'1F_A102、A102、A102、A102','main':'Lenovo、华硕、thinkpad、小米，苹果、三星'},{'src':'./images/k-dg-footerLogo.png','name':'八嘎八嘎','place':'1F_A102、A102、A102、A102','main':'Lenovo、华硕、thinkpad、小米，苹果、三星'}],'hotGoods':[{'href':'javascript:;','src':'./images/k-dg-footerLogo.png','name':'八嘎八嘎','fu':'八嘎八嘎八嘎八嘎','place':'1F_A102','price':'233'},{'href':'javascript:;','src':'./images/k-dg-footerLogo.png','name':'八嘎八嘎','fu':'八嘎八嘎八嘎八嘎','place':'1F_A102','price':'233'}]}},{},'get');
+				},{'status':'1','message':'XXX','data':{'lun':[{'href':'javascript:;','src':'./images/k-dg-footerLogo.png'},{'href':'javascript:;','src':'./images/k-dg-footerLogo.png'},{'href':'javascript:;','src':'./images/k-dg-footerLogo.png'},{'href':'javascript:;','src':'./images/k-dg-footerLogo.png'}],'starShop':[{'src':'./images/k-dg-footerLogo.png','name':'八嘎八嘎','place':'1F_A102、A102、A102、A102','main':'Lenovo、华硕、thinkpad、小米，苹果、三星'},{'src':'./images/k-dg-footerLogo.png','name':'八嘎八嘎','place':'1F_A102、A102、A102、A102','main':'Lenovo、华硕、thinkpad、小米，苹果、三星'}],'hotGoods':[{'href':'javascript:;','src':'./images/k-dg-footerLogo.png','name':'八嘎八嘎','fu':'八嘎八嘎八嘎八嘎','place':'1F_A102','price':'233'},{'href':'javascript:;','src':'./images/k-dg-footerLogo.png','name':'八嘎八嘎','fu':'八嘎八嘎八嘎八嘎','place':'1F_A102','price':'233'}]}},{},'get','json',true);
 		};
 	})();
 
@@ -481,9 +475,9 @@ api = '/api';
 			//搜索公用头部HTML拼接
 			_headErr = function(d,fn){
 				var fn	=	fn || function(){},
-					_html = '<div class="k-searchBanner2'+ (urlJson.type == undefined?'':' fixed') +'">'+
+					_html = '<form class="k-searchBanner2'+ (urlJson.type == undefined?'':' fixed') +'" data-name="k-goSearch">'+
 								'<div class="inputBox auto">'+
-									'<a href="javascript:;" class="search fr J-k-goSearch">搜索</a>'+
+									'<button type="submit" class="search fr J-k-goSearch">搜索</button>'+
 									'<a href="javascript:history.go(-1);" class="back fl"><img src="./images/k-dg-search-arrow.png" /></a>'+
 									'<div class="auto searchBox">'+
 										'<div class="checkout">'+
@@ -498,7 +492,7 @@ api = '/api';
 										'<a href="javascript:;" class="del" data-name="delKey" style="display:none;"></a>'+
 									'</div>'+
 								'</div>'+
-							'</div>';
+							'</form>';
 				$('body').prepend(_html);
 				_type	=	$('[data-type="search"]').val();
 				fn();
@@ -596,12 +590,7 @@ api = '/api';
 												'<img src="./images/zwt_180_180.jpg" data-src="'+ (data.Logo?data.Logo:'./images/k-shop-normal.jpg') +'" width="180" height="180" class="fl" />'+
 												'<div class="auto txtBox">'+
 													'<div class="name">'+ data.Name +'</div>'+
-													'<div class="place">';
-								var	snArr = data.Snname.split(',');
-								for(var	j=0,max2=snArr.length; j<max2; j++){
-									_html += data.Sfid + 'F_' + snArr[j] + (j==max2-1?'':'，');
-								};
-								_html +=		'</div>'+
+													'<div class="place">' + data.Sfid + 'F_' + data.Snname + '</div>'+
 													'<div class="main">主营：'+ data.Brands +'</div>'+
 												'</div>'+
 											  '</a></li>';
@@ -688,12 +677,13 @@ api = '/api';
 		},300)
 	});
 
-	$(document).on('click','.J-k-goSearch',function(){//搜索写入cookie
+	$(document).on('submit','[data-name="k-goSearch"]',function(){//搜索写入cookie
 		var	$input	=	$('[data-name="keyWord"]');
 		if(!$input.val().length){
 			$input.val($input.attr('placeholder'));
 		}
 		writeCookie($('[data-name="keyWord"]').val());
+		return false;
 	}).on('input','[data-name="keyWord"]',function(){//输入判断
 		hasTxt();
 	}).on('click','[data-name="delKey"]',function(){//删除输入
@@ -887,12 +877,7 @@ api = '/api';
 									'<img src="./images/zwt_180_180.jpg" data-src="'+ data.Logo +'" width="180" height="180" class="fl" />'+
 									'<div class="auto txtBox">'+
 										'<div class="name">'+ data.Name +'</div>'+
-										'<div class="place">';
-					var	_snArr = data.Snname.split(',');
-					for(var j=0,max2=_snArr.length; j<max2; j++){
-						_html += data.Sfid + 'F_' + _snArr[j] + (j == max2-1?'':'，');
-					}
-					_html +=		'</div>'+
+										'<div class="place">' + data.Sfid + 'F_' + data.Snname + '</div>'+
 										'<div class="main">主营：'+ data.Brands +'</div>'+
 									'</div>'+
 								  '</a></li>';
@@ -1001,6 +986,7 @@ var apiX				= '/api/',
 				success: function(d){
 					if(+ d.status){
 						_this.data = d.data;
+						_this.data = [];
 						_this.createHtml();
 					}
 				}
@@ -1014,17 +1000,19 @@ var apiX				= '/api/',
 				activity = this.data[i];
 				StartAt = new Date(activity.StartAt * 1000);
 				EndAt = new Date(activity.EndAt * 1000);
-				html.push('<li><a href="/activity.html?id=' + activity.Id + '"' + (time > (activity.EndAt * 1000) ? ' class="expired"' : '') + '><b><img src="' + activity.Img + '" width="180" height="180" /></b><h3>' + activity.Name + '</h3><p>活动时间：' + StartAt.getFullYear().toString().substring(2) + '/' + (StartAt.getMonth() + 1) + '/' + StartAt.getDate() + '~' + EndAt.getFullYear().toString().substring(2) + '/' + (EndAt.getMonth() + 1) + '/' + EndAt.getDate() + '</p><span>' + activity.Site + '</span></a></li>');
+				html.push('<li><a href="/activity.html?id=' + activity.Id + '"' + (time > (activity.EndAt * 1000) ? ' class="expired"' : '') + '><b><img src="' + activity.Img + '" width="180" height="180" /></b><h3>' + activity.Name + '</h3><p>活动：' + StartAt.getFullYear().toString() + '/' + (StartAt.getMonth() + 1) + '/' + StartAt.getDate() + '~' + EndAt.getFullYear().toString() + '/' + (EndAt.getMonth() + 1) + '/' + EndAt.getDate() + '</p><span>' + activity.Site + '</span></a></li>');
 			}
 			this.$ul.append(html.join(''));
-			if(len < 10){
+			if(len < 20){
 				this.$more.remove();
+				if(!this.$ul.find('li').length){
+					this.$null.show();
+				}
 			}else{
 				this.$more.css('display', 'block');
 				this.page = (this.page || 1) + 1;
 				this.tag = 0;
 			}
-			this.$null.remove();
 		},
 		setEvents: function(){
 			var _this		= this,
@@ -1085,7 +1073,7 @@ var apiX				= '/api/',
 				StartAt	= new Date(this.data.StartAt * 1000),
 				EndAt	= new Date(this.data.EndAt * 1000);
 			html.push('<div class="imgs"><img src="' + this.data.AImg + '" width="100%" /></div>');
-			html.push('<div class="time">活动时间：' + StartAt.getFullYear().toString().substring(2) + '/' + (StartAt.getMonth() + 1) + '/' + StartAt.getDate() + '~' + EndAt.getFullYear().toString().substring(2) + '/' + (EndAt.getMonth() + 1) + '/' + EndAt.getDate() + '</div>');
+			html.push('<div class="time">活动时间：' + StartAt.getFullYear().toString() + '/' + (StartAt.getMonth() + 1) + '/' + StartAt.getDate() + '~' + EndAt.getFullYear().toString() + '/' + (EndAt.getMonth() + 1) + '/' + EndAt.getDate() + '</div>');
 			html.push('<div class="address">' + this.data.Site + '</div>');
 			html.push('<div class="desc"><h3>活动详情</h3><div class="rich-text">' + this.data.Content + '</div></div>');
 			this.$activity.html(html.join(''));
@@ -1496,6 +1484,3 @@ var apiX				= '/api/',
 	};
 })(jQuery, window, document);
 
-window.ajaxgo("https://baidu.com",function(){},{},{},'get','json',true,function(){
-	$('body').append("成功联网");
-});
