@@ -1486,3 +1486,21 @@ var apiX				= '/api/',
 	};
 })(jQuery, window, document);
 
+function writeObj(obj){ 
+	var description = ""; 
+	for(var i in obj){ 
+		var property=obj[i];
+		if(typeof(property) == "object"){
+			description+=i+" = "+writeObj(property)+"\n";
+		}else{
+			description+=i+" = "+property+"\n";
+		}
+	} 
+	return description; 
+} 
+
+$(document).on('click','[data-name="demo"]',function(){
+	window.ajaxgo($('[data-name="demoInput"]').val(),function(d){
+		$('[data-name="demoTxt"]').empty().append(writeObj(d));
+	},{},{},'get','json',true);
+});
