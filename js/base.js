@@ -1503,4 +1503,6 @@ $(document).on('click','[data-name="demo"]',function(){
 	window.ajaxgo($('[data-name="demoInput"]').val(),function(d){
 		$('[data-name="demoTxt"]').empty().append(writeObj(d));
 	},{},{},'get','json',true);
+}).on('click','[data-name="demoA"]',function(){
+	window.open('https://baidu.com');
 });
