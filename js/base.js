@@ -348,7 +348,9 @@ api = 'http://88.8.8.167:10411/api';
 						$.returnTop();
 						fn();
 					}
-				},{'status':'1','message':'XXX','data':{'lun':[{'href':'javascript:;','src':'./images/k-dg-footerLogo.png'},{'href':'javascript:;','src':'./images/k-dg-footerLogo.png'},{'href':'javascript:;','src':'./images/k-dg-footerLogo.png'},{'href':'javascript:;','src':'./images/k-dg-footerLogo.png'}],'starShop':[{'src':'./images/k-dg-footerLogo.png','name':'八嘎八嘎','place':'1F_A102、A102、A102、A102','main':'Lenovo、华硕、thinkpad、小米，苹果、三星'},{'src':'./images/k-dg-footerLogo.png','name':'八嘎八嘎','place':'1F_A102、A102、A102、A102','main':'Lenovo、华硕、thinkpad、小米，苹果、三星'}],'hotGoods':[{'href':'javascript:;','src':'./images/k-dg-footerLogo.png','name':'八嘎八嘎','fu':'八嘎八嘎八嘎八嘎','place':'1F_A102','price':'233'},{'href':'javascript:;','src':'./images/k-dg-footerLogo.png','name':'八嘎八嘎','fu':'八嘎八嘎八嘎八嘎','place':'1F_A102','price':'233'}]}},{},'get','json',true);
+				},{'status':'1','message':'XXX','data':{'lun':[{'href':'javascript:;','src':'./images/k-dg-footerLogo.png'},{'href':'javascript:;','src':'./images/k-dg-footerLogo.png'},{'href':'javascript:;','src':'./images/k-dg-footerLogo.png'},{'href':'javascript:;','src':'./images/k-dg-footerLogo.png'}],'starShop':[{'src':'./images/k-dg-footerLogo.png','name':'八嘎八嘎','place':'1F_A102、A102、A102、A102','main':'Lenovo、华硕、thinkpad、小米，苹果、三星'},{'src':'./images/k-dg-footerLogo.png','name':'八嘎八嘎','place':'1F_A102、A102、A102、A102','main':'Lenovo、华硕、thinkpad、小米，苹果、三星'}],'hotGoods':[{'href':'javascript:;','src':'./images/k-dg-footerLogo.png','name':'八嘎八嘎','fu':'八嘎八嘎八嘎八嘎','place':'1F_A102','price':'233'},{'href':'javascript:;','src':'./images/k-dg-footerLogo.png','name':'八嘎八嘎','fu':'八嘎八嘎八嘎八嘎','place':'1F_A102','price':'233'}]}},{},'get','json',true,function(){
+					$('body').append(api);
+				});
 		};
 	})();
 
