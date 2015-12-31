@@ -259,7 +259,7 @@ api = 'http://map.gxdk.com.cn/api';
 		$.homePage = function(fn){
 			var	fn	=	fn || function(){},
 				_homePage = '<div class="k-searchBanner" data-name="searchBanner">'+
-								'<a class="icon" href="/search.html"><img src="./images/k-dg-logo.png"/></a>'+
+								'<a class="icon" href="javascript:;"><img src="./images/k-dg-logo.png"/></a>'+
 								'<a href="/search.html" class="inputBox">'+
 									'<div class="goSearch">搜索商品/店铺</div>'+
 									'<i></i>'+
@@ -313,7 +313,7 @@ api = 'http://map.gxdk.com.cn/api';
 							for(var j=0,max=d.data.starShop.length; j<max; j++){
 								var data2 = d.data.starShop[j];
 								_homePage += '<li><a href="'+ ('/store.html?id='+data2.Store.Id) +'" class="auto">'+
-												'<img src="./images/zwt_180_180.jpg" data-src="'+ (data2.Store.Logo.length?data2.Store.Logo:'./images/k-shop-normal.jpg') +'" width="180" height="180" class="fl" />'+
+												'<img src="./images/zwt_180_180.jpg" data-src="'+ (data2.Store.Logo.length?data2.Store.Logo:'./images/k-shop-normal.jpg') +'" class="fl" />'+
 												'<div class="auto txtBox">'+
 													'<div class="name">'+ data2.Store.Name +'</div>'+
 													'<div class="place">' + data2.Store.Sfid + 'F_' + data2.Store.Snname + '</div>'+
@@ -331,7 +331,7 @@ api = 'http://map.gxdk.com.cn/api';
 								var	data3 = d.data.hotGoods[k];
 								_homePage += '<li>'+
 											'<a href="'+ ('/product.html?id='+data3.Product.Id) +'" class="auto">'+
-												'<img src="./images/zwt_180_180.jpg" data-src="'+ data3.Product.Thumb +'" width="180" height="180" class="fl" />'+
+												'<img src="./images/zwt_180_180.jpg" data-src="'+ data3.Product.Thumb +'" class="fl" />'+
 												'<div class="auto txtBox">'+
 													'<div class="name">'+ data3.Product.Name +'</div>'+
 													'<div class="deputy">'+ data3.Product.Store.Name +'</div>'+
@@ -397,7 +397,7 @@ api = 'http://map.gxdk.com.cn/api';
 					var	data = d.data.hotGoods[i];
 					_html += '<li>'+
 								'<a href="'+ ('/product.html?id='+data.Product.Id) +'" class="auto">'+
-									'<img src="./images/zwt_180_180.jpg" data-src="'+ data.Product.Thumb +'" width="180" height="180" class="fl" />'+
+									'<img src="./images/zwt_180_180.jpg" data-src="'+ data.Product.Thumb +'" class="fl" />'+
 									'<div class="auto txtBox">'+
 										'<div class="name">'+ data.Product.Name +'</div>'+
 										'<div class="deputy">'+ data.Product.Store.Name +'</div>'+
@@ -412,7 +412,7 @@ api = 'http://map.gxdk.com.cn/api';
 				window.kPreLoad();
 				if($('.J-k-lazyLoad').length)$('.J-k-lazyLoad').remove();
 			}
-		},{'status':'1','message':'XXX','data':[{'name':'八嘎八嘎你是大八嘎','fu':'八嘎八嘎你是八嘎','price':'666','place':'1F_A102','src':'./images/k-dg-footerLogo.png','href':'javascript:;'},{'name':'八嘎八嘎你是大八嘎','fu':'八嘎八嘎你是八嘎','price':'到店询价','place':'1F_A102','src':'./images/k-dg-footerLogo.png','href':'javascript:;'}]},{'page':_page},'get');
+		},{'status':'1','message':'XXX','data':[{'name':'八嘎八嘎你是大八嘎','fu':'八嘎八嘎你是八嘎','price':'666','place':'1F_A102','src':'./images/k-dg-footerLogo.png','href':'javascript:;'},{'name':'八嘎八嘎你是大八嘎','fu':'八嘎八嘎你是八嘎','price':'到店询价','place':'1F_A102','src':'./images/k-dg-footerLogo.png','href':'javascript:;'}]},{'page':_page},'get','json',true);
 	}
 })(jQuery, document);
 
@@ -490,7 +490,7 @@ api = 'http://map.gxdk.com.cn/api';
 											'<i></i>'+
 											'<input type="hidden" data-type="search" value="'+ (urlJson.type == undefined?'0':urlJson.type) +'" />'+
 										'</div>'+
-										'<input type="text" data-name="keyWord" value="'+ (urlJson.key == undefined?'':urlJson.key) +'" placeholder="'+ (d == ''?"":d.data[0].Name) +'" />'+
+										'<input type="text" data-name="keyWord" value="'+ (urlJson.key == undefined?'':urlJson.key) +'" placeholder="'+ (d.data == ''?"":d.data[0].Name) +'" />'+
 										'<a href="javascript:;" class="del" data-name="delKey" style="display:none;"></a>'+
 									'</div>'+
 								'</div>'+
@@ -507,7 +507,7 @@ api = 'http://map.gxdk.com.cn/api';
 					if(+d.status){
 						_headErr(d,fn);
 					}
-				},{},{},'get','json','',function(){
+				},{},{},'get','json',true,function(){
 					_headErr('',fn);
 				});
 			};
@@ -548,7 +548,7 @@ api = 'http://map.gxdk.com.cn/api';
 								var	data = d.data[i];
 								_html += '<li>'+
 											'<a href="'+ ('/product.html?id='+data.Id) +'" class="auto">'+
-												'<img src="./images/zwt_180_180.jpg" data-src="'+ data.Thumb +'" width="180" height="180" class="fl" />'+
+												'<img src="./images/zwt_180_180.jpg" data-src="'+ data.Thumb +'" class="fl" />'+
 												'<div class="auto txtBox">'+
 													'<div class="name">'+ data.Name +'</div>'+
 													'<div class="deputy">'+ data.Store.Name +'</div>'+
@@ -575,7 +575,7 @@ api = 'http://map.gxdk.com.cn/api';
 						}
 						_search(fn);
 					}
-				},{'status':'1','message':'XXX','data':[{'name':'八嘎八嘎你是大八嘎','fu':'八嘎八嘎你是八嘎','price':'666','place':'1F_A102','src':'./images/k-dg-footerLogo.png','href':'javascript:;'},{'name':'八嘎八嘎你是大八嘎','fu':'八嘎八嘎你是八嘎','price':'到店询价','place':'1F_A102','src':'./images/k-dg-footerLogo.png','href':'javascript:;'}]},{'type':urlJson.type,'key':urlJson.key,'floor':urlJson.floor},'get');
+				},{'status':'1','message':'XXX','data':[{'name':'八嘎八嘎你是大八嘎','fu':'八嘎八嘎你是八嘎','price':'666','place':'1F_A102','src':'./images/k-dg-footerLogo.png','href':'javascript:;'},{'name':'八嘎八嘎你是大八嘎','fu':'八嘎八嘎你是八嘎','price':'到店询价','place':'1F_A102','src':'./images/k-dg-footerLogo.png','href':'javascript:;'}]},{'type':urlJson.type,'key':urlJson.key,'floor':urlJson.floor},'get','json',true);
 			};
 
 			//店铺搜索结果页
@@ -589,7 +589,7 @@ api = 'http://map.gxdk.com.cn/api';
 							for(var i=0,max=d.data.length; i<max; i++){
 								var	data = d.data[i];
 								_html += '<li><a href="'+ ('/store.html?id='+data.Id) +'" class="auto">'+
-												'<img src="./images/zwt_180_180.jpg" data-src="'+ (data.Logo?data.Logo:'./images/k-shop-normal.jpg') +'" width="180" height="180" class="fl" />'+
+												'<img src="./images/zwt_180_180.jpg" data-src="'+ (data.Logo?data.Logo:'./images/k-shop-normal.jpg') +'" class="fl" />'+
 												'<div class="auto txtBox">'+
 													'<div class="name">'+ data.Name +'</div>'+
 													'<div class="place">' + data.Sfid + 'F_' + data.Snname + '</div>'+
@@ -613,7 +613,7 @@ api = 'http://map.gxdk.com.cn/api';
 						}
 						_search(fn);
 					}
-				},{'status':'1','message':'XXX','data':[/*{'name':'八嘎八嘎你是大八嘎','main':'Lenovo、华硕、thinkpad、小米，苹果、三星','price':'666','place':'1F_A102','src':'./images/k-dg-footerLogo.png','href':'javascript:;'},{'name':'八嘎八嘎你是大八嘎','main':'Lenovo、华硕、thinkpad、小米，苹果、三星','price':'666','place':'1F_A102','src':'./images/k-dg-footerLogo.png','href':'javascript:;'}*/]},{'type':urlJson.type,'key':urlJson.key,'floor':urlJson.floor},'get');
+				},{'status':'1','message':'XXX','data':[/*{'name':'八嘎八嘎你是大八嘎','main':'Lenovo、华硕、thinkpad、小米，苹果、三星','price':'666','place':'1F_A102','src':'./images/k-dg-footerLogo.png','href':'javascript:;'},{'name':'八嘎八嘎你是大八嘎','main':'Lenovo、华硕、thinkpad、小米，苹果、三星','price':'666','place':'1F_A102','src':'./images/k-dg-footerLogo.png','href':'javascript:;'}*/]},{'type':urlJson.type,'key':urlJson.key,'floor':urlJson.floor},'get','json',true);
 			};
 
 			//搜索页起始页
@@ -638,7 +638,7 @@ api = 'http://map.gxdk.com.cn/api';
 						_search(fn);
 						$('body').append(_html);
 					}
-				},{'status':'1','message':'XXX','data':['八嘎1号','八嘎2号','八嘎3号','八嘎4号','八嘎5号']},{},'get');
+				},{'status':'1','message':'XXX','data':['八嘎1号','八嘎2号','八嘎3号','八嘎4号','八嘎5号']},{},'get','json',true);
 			};
 
 			lastInit = function (){
@@ -846,7 +846,7 @@ api = 'http://map.gxdk.com.cn/api';
 					var	data = d.data[i];
 					_html += '<li>'+
 								'<a href="'+ ('/product.html?id='+data.Id) +'" class="auto">'+
-									'<img src="./images/zwt_180_180.jpg" data-src="'+ data.Thumb +'" width="180" height="180" class="fl" />'+
+									'<img src="./images/zwt_180_180.jpg" data-src="'+ data.Thumb +'" class="fl" />'+
 									'<div class="auto txtBox">'+
 										'<div class="name">'+ data.Name +'</div>'+
 										'<div class="deputy">'+ data.Store.Name +'</div>'+
@@ -876,7 +876,7 @@ api = 'http://map.gxdk.com.cn/api';
 				for(var i=0,max=d.data.length; i<max; i++){
 					var	data = d.data[i];
 					_html += '<li><a href="'+ ('/store.html?id='+data.Id) +'" class="auto">'+
-									'<img src="./images/zwt_180_180.jpg" data-src="'+ data.Logo +'" width="180" height="180" class="fl" />'+
+									'<img src="./images/zwt_180_180.jpg" data-src="'+ data.Logo +'" class="fl" />'+
 									'<div class="auto txtBox">'+
 										'<div class="name">'+ data.Name +'</div>'+
 										'<div class="place">' + data.Sfid + 'F_' + data.Snname + '</div>'+
