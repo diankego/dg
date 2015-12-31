@@ -1,4 +1,4 @@
-api = 'http://88.8.8.167:10411/api';
+api = 'http://map.gxdk.com.cn/api';
 
 //自动缩放
 (function($, document, undefined){
